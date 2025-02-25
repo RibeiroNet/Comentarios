@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/pagina_principal.css') }}">
+    <title>Página Inicial</title>
+</head>
+
+<body>
+    <section class="corpo">
+        <h1>Deixe seu comentário</h1>
+        <h2>Seu feedback é muito importante!</h2>
+
+        <form class="dados" action="/post/comentario" method="POST">
+            <label for="usuario">Nome de Usuário:</label><br>
+            <input  class="usuario" type="text" id="usuario" name="usuario" required><br>
+
+            <label for="comentario">Comentário:</label><br>
+            <textarea class="comentario" id="comentario" name="comentario" required></textarea><br>
+
+            <button class="button" type="submit">Enviar</button>
+        </form>
+    </section>
+
+</body>
+</html>

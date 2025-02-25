@@ -7,11 +7,15 @@
     font-family: Arial, sans-serif;
     background-color: #e3f2fd; 
     text-align: center;
-    padding: 150px;
+    padding: 240px;
+}
+
+h1 {
+    color: #0288d1; 
 }
 
 h2 {
-    color: #0288d1; 
+    color: #004266; 
 }
 
 .dados {
