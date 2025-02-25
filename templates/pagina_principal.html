@@ -23,6 +23,13 @@
 
             <button class="button" type="submit">Enviar</button>
         </form>
+
+        {% if usuario %}
+        <div class="spam">
+            <span>Bem-vindo, {{ usuario }}!</span>
+            <span>Data e hora do acesso: {{ data_hora }}</span>
+        </div>
+        {% endif %}
     </section>
 
 </body>
