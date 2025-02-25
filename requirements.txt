@@ -1,0 +1,2 @@
+# quando for informar um arquivo, colocar - r
+flask
