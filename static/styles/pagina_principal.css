@@ -47,3 +47,15 @@ h2 {
 .button:hover {
     background-color: #01579b; 
 }
+
+.card-panel {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #766fff; 
+}
+
+.card-panel span {
+    font-size: 16px;
+    color: white;
+    line-height: 1.6;
+}

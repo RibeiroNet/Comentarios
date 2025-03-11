@@ -30,6 +30,19 @@
             <span>Data e hora do acesso: {{ data_hora }}</span>
         </div>
         {% endif %}
+
+        <div class="row">
+            {% for mensagem in mensagens}
+            <div class="col s12 m5">
+              <div class="card-panel teal">
+                <span class="white-text">{{mensagem.usuario}} ({{mensagem.data_hora}})
+                    </span>              {{mensagem.mensagem}}
+                </span>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
     </section>
 
 </body>
