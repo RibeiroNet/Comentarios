@@ -11,8 +11,8 @@ app = Flask (__name__)
 @app.route("/")
 def pagina_principal():
     # recuperar mensagem
-    Mensagem = Mensagem.recuperar_mensagem()
-    return render_template("pagina_principal.html", mensagens = Mensagem)
+    Mensagens = Mensagem.recuperar_mensagens()
+    return render_template("pagina_principal.html", mensagens = Mensagens)
 
 @app.route("/post/comentario", methods = ["POST"])
 def post_comentario():
@@ -24,6 +24,15 @@ def post_comentario():
     Mensagem.cadastrar_mensagem(usuario, comentario)
     # redireciona para o index
     return redirect ("/")
+
+@app.route("/delete/mensagem/<codigo>")
+def delete_mensagem(codigo):
+    Mensagem.deletar_mensagem(codigo)
+    return redirect("/")
+
+@app.route("/put/mensagem/add_curtidas")
+def add_curtida(codigo):
+    return redirect("/")
 
 # ao final de tudo, corrige bugs
 app.run(debug=True)

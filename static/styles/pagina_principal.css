@@ -1,37 +1,40 @@
-/* geral  */
-*{
-    margin: 0 auto;
+/* Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.corpo {
+body {
     font-family: Arial, sans-serif;
-    background-color: #e3f2fd; 
+    background-color: #e3f2fd;
     text-align: center;
-    padding: 240px;
+    padding: 20px;
 }
 
 h1 {
-    color: #0288d1; 
+    color: #0288d1;
 }
 
 h2 {
-    color: #004266; 
+    color: #0288d1;
 }
 
 .dados {
-    background-color: #66aeff;
-    padding: 80px;
+    background-color: #ffffff;
+    padding: 40px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    box-shadow: 0 4px 8px #0004ff1a;
+    margin: 20px auto;
     display: inline-block;
+    width: 50%;
 }
 
-.usuario[type="text"], .comentario {
+.usuario, .comentario {
     width: 100%;
     padding: 10px;
     margin: 5px 0 15px;
-    border: 1px solid #0b00a8; 
+    border: 1px solid #1100ff;
     border-radius: 3px;
 }
 
@@ -45,17 +48,59 @@ h2 {
 }
 
 .button:hover {
-    background-color: #01579b; 
+    background-color: #01579b;
 }
 
-.card-panel {
-    padding: 20px;
+/* Estilização da Tabela de Comentários */
+.tabela-comentarios {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    background-color: #766fff; 
+    overflow: hidden;
 }
 
-.card-panel span {
-    font-size: 16px;
+.tabela-comentarios th, .tabela-comentarios td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.tabela-comentarios th {
+    background-color: #0288d1;
     color: white;
-    line-height: 1.6;
+}
+
+.tabela-comentarios tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabela-comentarios tr:hover {
+    background-color: #ddd;
+}
+
+/* Botões de Ação */
+.acoes button {
+    padding: 5px 10px;
+    margin: 2px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.acoes .excluir {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.acoes .like {
+    background-color: #388e3c;
+    color: white;
+}
+
+.acoes .deslike {
+    background-color: #fbc02d;
+    color: black;
 }

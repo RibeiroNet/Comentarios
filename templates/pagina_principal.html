@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Link para o arquivo CSS -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles/pagina_principal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/pagina_principal.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>Página Inicial</title>
 </head>
 
@@ -16,9 +17,9 @@
 
         <form class="dados" action="/post/comentario" method="POST">
             <label for="usuario">Nome de Usuário:</label><br>
-            <input  class="usuario" type="text" id="usuario" name="usuario" required><br>
+            <input class="usuario" type="text" id="usuario" name="usuario" required><br>
 
-            <label for="comentario">Comentário:</label><br>
+            <label for="comentario">Seu Comentário:</label><br>
             <textarea class="comentario" id="comentario" name="comentario" required></textarea><br>
 
             <button class="button" type="submit">Enviar</button>
@@ -32,18 +33,38 @@
         {% endif %}
 
         <div class="row">
-            {% for mensagem in mensagens}
-            <div class="col s12 m5">
-              <div class="card-panel teal">
-                <span class="white-text">{{mensagem.usuario}} ({{mensagem.data_hora}})
-                    </span>              {{mensagem.mensagem}}
-                </span>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Nome de Usuário</th>
+                        <th>Comentário</th>
+                        <th>Data e Hora</th>
+                        <th>Likes</th>
+                        <th>Deslikes</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mensagem in mensagens %}
+                    <tr>
+                        <td>{{ mensagem.usuario }}</td>
+                        <td>{{ mensagem.mensagem }}</td>
+                        <td>{{ mensagem.data_hora }}</td>
+                        <td>{{ mensagem.likes }}</td> <!-- Número de likes -->
+                        <td>{{ mensagem.deslikes }}</td> <!-- Número de deslikes -->
+                        <td>
+                            <a href="/delete/mensagem/{{mensagem.cod_comentario}}">
+                                <button class="button">Excluir</button>
+                            </a>
+                            <button class="button">Like</button>
+                            <button class="button">Deslike</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </section>
-
 </body>
+
 </html>

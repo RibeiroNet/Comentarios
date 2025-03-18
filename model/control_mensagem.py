@@ -1,4 +1,5 @@
 import datetime
+import mysql.connector
 from data.conexao import Conexao
 
 class Mensagem:
@@ -8,14 +9,6 @@ class Mensagem:
 
         #cadastrando as informações no banco de dados
         #criando conexão (ponte)
-        conexao = mysql.connector.connect(
-            host= "127.0.0.1",
-            port = 3306,
-            user = "root",
-            password = "root",
-            database = "db_comentarios")
-
-        # 
         conexao = Conexao.criar_conexao()
 
         #usa a conexão que eu criei para buscar as inf do banco de dados(pessoa da ponte)
@@ -23,7 +16,9 @@ class Mensagem:
 
         # comando sql que será executado
         sql = """INSERT INTO tb_comentarios
-                    (nome, data_hora, comentario)
+                    (nome, 
+                    data_hora, 
+                    comentario)
                 VALUES
                     (%s,%s,%s)"""
 
@@ -49,8 +44,9 @@ class Mensagem:
 
         sql = """select nome as usuario,
                         data_hora,
-                        comentario as mensagem
-                        from tb_comentarios"""
+                        comentario as mensagem,
+                        cod_comentario
+                        from tb_comentarios;"""
  
         # executando o comando 
         cursor.execute(sql)
@@ -62,4 +58,28 @@ class Mensagem:
         cursor.close()
         conexao.close()
 
+        return resultado
     
+    def deletar_mensagem(codigo): 
+
+            #criando conexão (ponte)
+            conexao = Conexao.criar_conexao()
+
+            #usa a conexão que eu criei para buscar as inf do banco de dados(pessoa da ponte)
+            cursor  = conexao.cursor()
+
+          # comando sql que será executado
+            sql = """delete from tb_comentarios where cod_comentario = %s;"""
+            
+            valores = (codigo,)
+            
+                #executando o comando sql
+            cursor.execute(sql,valores)
+
+                # se houver alteração/exclusão, confirma a ação de cima
+            conexao.commit()
+
+                #é necessário desconectar do banco de dados, fechar a conexão
+            cursor.close()
+            conexao.close()
+
