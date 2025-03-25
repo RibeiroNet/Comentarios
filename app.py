@@ -4,10 +4,9 @@ from flask import Flask, render_template, request, redirect
 import mysql.connector
 from data.conexao import Conexao
 from model.control_mensagem import Mensagem
-
 app = Flask (__name__)
 
-# adicionando rotas 
+#rotas 
 @app.route("/")
 def pagina_principal():
     # recuperar mensagem
@@ -30,9 +29,15 @@ def delete_mensagem(codigo):
     Mensagem.deletar_mensagem(codigo)
     return redirect("/")
 
-@app.route("/put/mensagem/add_curtidas")
+@app.route("/put/mensagem/curtir/<codigo>")
 def add_curtida(codigo):
+    Mensagem.curtir_mensagem(codigo)
     return redirect("/")
+
+@app.route("/put/mensagem/descurtir/<codigo>")
+def deslike(codigo):
+    Mensagem.descurtir_mensagem(codigo)
+    return redirect("/")    
 
 # ao final de tudo, corrige bugs
 app.run(debug=True)

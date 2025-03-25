@@ -1,0 +1,52 @@
+/* Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e3f2fd;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #0288d1;
+}
+
+h2 {
+    color: #0288d1;
+}
+
+.dados {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px #0004ff1a;
+    margin: 20px auto;
+    display: inline-block;
+    width: 50%;
+}
+
+.usuario, .comentario {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #1100ff;
+    border-radius: 3px;
+}
+
+.button {
+    background-color: #160174;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #01579b;
+}

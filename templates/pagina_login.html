@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/pagina_login.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Página de Cadastro</title>
+</head>
+
+<body>
+    <section class="corpo">
+        <h1>Faça seu login!</h1>
+        <h2>Seu feedback é muito importante!</h2>
+
+        <form class="dados" action="/post/comentario" method="POST">
+            <label for="usuario">Usuário:</label><br>
+            <input class="usuario" type="text" id="usuario" name="usuario" required><br>
+
+            <label for="nome">Nome Completo:</label><br>
+            <input class="nome" type="text" id="nome" name="nome" required><br>
+
+            <label for="comentario">Senha:</label><br>
+            <input class="senha" type="senha" id="senha" name="senha" required><br>
+
+            <button class="button" type="submit">Enviar</button>
+        </form>
+        
+    </section>
+</body>
+</html>
