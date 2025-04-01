@@ -40,7 +40,6 @@
                         <th>Comentário</th>
                         <th>Data e Hora</th>
                         <th>Likes</th>
-                        <th>Deslikes</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -50,12 +49,9 @@
                         <td>{{ mensagem.usuario }}</td>
                         <td>{{ mensagem.mensagem }}</td>
                         <td>{{ mensagem.data_hora }}</td>
-                        <td>{{ mensagem.likes }}</td>
-                        <td>{{ mensagem.deslikes }}</td> 
+                        <td>{{ mensagem.curtidas }}</td>
                         <td>
-                            <a href="/delete/mensagem/{{mensagem.cod_comentario}}">
-                                <button class="button">Excluir</button>
-                            </a>
+                            <a href="/delete/mensagem/{{mensagem.cod_comentario}}"><button class="button">Excluir</button></a>
                             <a href="/put/mensagem/curtir/{{mensagem.cod_comentario}}"><button class="button">Like</button></a>
                             <a href="/put/mensagem/descurtir/{{mensagem.cod_comentario}}"><button class="button">Deslike</button></a>
                         </td>

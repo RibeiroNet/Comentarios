@@ -17,7 +17,7 @@
 
         <form class="dados" action="/post/comentario" method="POST">
             <label for="usuario">Usuário:</label><br>
-            <input class="usuario" type="text" id="usuario" name="usuario" required><br>
+            <input class="login" type="text" id="login" name="login" required><br>
 
             <label for="nome">Nome Completo:</label><br>
             <input class="nome" type="text" id="nome" name="nome" required><br>
@@ -27,7 +27,19 @@
 
             <button class="button" type="submit">Enviar</button>
         </form>
-        
+
+        <div class="row">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Nome de Usuário</th>
+                        <th>Nome completo</th>
+                        <th>Data e Hora de Login</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </section>
 </body>
+
 </html>

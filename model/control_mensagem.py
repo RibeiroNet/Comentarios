@@ -48,7 +48,8 @@ class Mensagem:
         sql = """select nome as usuario,
                         data_hora,
                         comentario as mensagem,
-                        cod_comentario
+                        cod_comentario,
+                        curtidas
                         from tb_comentarios;"""
  
         # executando o comando 
@@ -94,10 +95,10 @@ class Mensagem:
         cursor  = conexao.cursor()
         
         # comando sql que será executado
-        sql = """update tb_comentarios set curtida = curtida + 1 
+        sql = """update tb_comentarios set curtidas = curtidas + 1 
         where cod_comentario = %s;"""   
         
-        valores=(codigo)
+        valores = (codigo,)
         
         #executando o comando sql
         cursor.execute(sql,valores)
@@ -117,10 +118,10 @@ class Mensagem:
         cursor  = conexao.cursor()
         
         # comando sql que será executado
-        sql = """update tb_comentarios set curtida = curtida - 1 
+        sql = """update tb_comentarios set curtidas = curtidas - 1 
         where cod_comentario = %s;"""   
         
-        valores=(codigo)
+        valores = (codigo,)
         
         #executando o comando sql
         cursor.execute(sql,valores)

@@ -4,10 +4,12 @@ from flask import Flask, render_template, request, redirect
 import mysql.connector
 from data.conexao import Conexao
 from model.control_mensagem import Mensagem
+from model.control_usuario import Usuario
+
 app = Flask (__name__)
 
 #rotas 
-@app.route("/")
+@app.route("/comentario")
 def pagina_principal():
     # recuperar mensagem
     Mensagens = Mensagem.recuperar_mensagens()
@@ -38,6 +40,27 @@ def add_curtida(codigo):
 def deslike(codigo):
     Mensagem.descurtir_mensagem(codigo)
     return redirect("/")    
+
+@app.route("/")
+def cadastro_usuario():
+    # recupera o usuário
+    usuarios = Usuario.recuperar_usuario()
+
+    return render_template("pagina_login.html", usuarios = usuarios)
+
+@app.route("/post/cadastrarusuario", methods = ["POST"])
+def post_usuario():
+    # pego as informações vindas do usuário
+    login = request.form.get("login")
+    senha = request.form.get("senha")  
+    nome = request.form.get("nome")
+   
+    # cadastrando a mensagem usando a class mensagem 
+    Usuario.cadastrar(login,senha,nome)
+
+    return redirect("/")
+
+
 
 # ao final de tudo, corrige bugs
 app.run(debug=True)
