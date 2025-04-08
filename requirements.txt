@@ -1,6 +1,7 @@
 # quando for informar um arquivo, colocar pip install - r
 flask
 mysql-connector-python
+gunicorn
 
 # git config --global user.name "Neto Ribeiro"
 # git config --global user.email "netorribeiro.2007@gmail.com"

@@ -3,7 +3,7 @@ import datetime
 from flask import Flask, render_template, request, redirect
 import mysql.connector
 from data.conexao import Conexao
-from model.control_mensagem import Mensagem
+from mo         del.control_mensagem import Mensagem
 from model.control_usuario import Usuario
 
 app = Flask (__name__)
@@ -22,9 +22,9 @@ def post_comentario():
     comentario = request.form.get("comentario")
 
     # cadastrando a mensagem usando a classe mensagem
-    Mensagem.cadastrar_mensagem()
+    Mensagem.cadastrar_mensagem(usuario, comentario)
     # redireciona para o index
-    return redirect ("/")
+    return redirect ("/comentario")
 
 @app.route("/delete/mensagem/<codigo>")
 def delete_mensagem(codigo):
@@ -61,6 +61,6 @@ def post_usuario():
     return redirect("/pagina_login")
 
 
-
-# ao final de tudo, corrige bugs
-app.run(debug=True)
+    if __name__ == '__main__':
+        app.run(host="0.0.0.0", port=8080)
+        # ao final de tudo, corrige bugs
