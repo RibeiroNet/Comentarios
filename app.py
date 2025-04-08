@@ -16,7 +16,7 @@ def pagina_principal():
     return render_template("pagina_principal.html", mensagens = Mensagens)
 
 @app.route("/post/comentario", methods = ["POST"])
-def post_comentario(usuario, comentario):
+def post_comentario():
     #informações vindas do formulário html
     usuario = request.form.get("usuario")
     comentario = request.form.get("comentario")
