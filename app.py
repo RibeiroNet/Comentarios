@@ -16,13 +16,13 @@ def pagina_principal():
     return render_template("pagina_principal.html", mensagens = Mensagens)
 
 @app.route("/post/comentario", methods = ["POST"])
-def post_comentario():
+def post_comentario(usuario, comentario):
     #informações vindas do formulário html
     usuario = request.form.get("usuario")
     comentario = request.form.get("comentario")
 
     # cadastrando a mensagem usando a classe mensagem
-    Mensagem.cadastrar_mensagem(usuario, comentario)
+    Mensagem.cadastrar_mensagem()
     # redireciona para o index
     return redirect ("/")
 
@@ -48,7 +48,7 @@ def cadastro_usuario():
 
     return render_template("pagina_login.html", usuarios = usuarios)
 
-@app.route("/post/cadastrarusuario", methods = ["POST"])
+@app.route("/post/cadastrarusuario", methods = ["GET"])
 def post_usuario():
     # pego as informações vindas do usuário
     login = request.form.get("login")
@@ -56,9 +56,9 @@ def post_usuario():
     nome = request.form.get("nome")
    
     # cadastrando a mensagem usando a class mensagem 
-    Usuario.cadastrar(login,senha,nome)
+    Usuario.cadastrar(login, senha, nome)
 
-    return redirect("/")
+    return redirect("/pagina_login")
 
 
 

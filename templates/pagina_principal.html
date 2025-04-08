@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <a href="./cadastro.html">Cadastre-se Aqui!</a>
     <section class="corpo">
         <h1>Deixe seu comentário</h1>
         <h2>Seu feedback é muito importante!</h2>
@@ -27,8 +28,7 @@
 
         {% if usuario %}
         <div class="spam">
-            <span>Bem-vindo, {{ usuario }}!</span>
-            <span>Data e hora do acesso: {{ data_hora }}</span>
+            <span>Bem-vindo, {{ session[nome] }}!</span>
         </div>
         {% endif %}
 
